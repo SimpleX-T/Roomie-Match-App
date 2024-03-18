@@ -241,3 +241,6 @@ main {
 
 @media screen and (max-width: 600px) {
 }
+@media screen and (max-width: 768px) {
+  /* CSS rules to apply when the screen width is 768 pixels or less */
+}

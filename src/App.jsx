@@ -3,6 +3,7 @@ import { FiCheckSquare } from "react-icons/fi";
 import { PiStarFill } from "react-icons/pi";
 import "./App.css";
 import { IconContext } from "react-icons";
+import { useEffect, useState } from "react";
 
 function NavLink({ title, address }) {
 	return <a href={address}>{title}</a>;
@@ -114,12 +115,44 @@ function Main() {
 	);
 }
 
+function Modal({ children }) {
+	return <>{children}</>;
+}
+
 export default function App() {
+	const [isReady, setIsReady] = useState(false);
+
+	useEffect(function () {
+		if (window.innerWidth >= 600) {
+			setIsReady(true);
+			return;
+		}
+		setTimeout(() => {
+			setIsReady(true);
+		}, 5000);
+	}, []);
 	return (
 		<>
-			<div className='top-bar'></div>
-			<Header />
-			<Main />
+			{isReady ? (
+				<>
+					<div className='top-bar'></div>
+					<Header />
+					<Main />
+				</>
+			) : (
+				<Modal>
+					<p
+						style={{
+							fontSize: "1rem",
+							margin: "30px 10px",
+							color: "rgb(245, 134, 52)",
+						}}>
+						<b>Note: </b>This page is not yet responsive, so do turn
+						on your <em style={{ opacity: ".6" }}>Desktop Mode</em>{" "}
+						from your android&apos;s browser.
+					</p>
+				</Modal>
+			)}
 		</>
 	);
 }
