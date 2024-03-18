@@ -51,7 +51,16 @@ function Hero() {
 		<div className='hero'>
 			<div className='free-test'>
 				<div className='icon'>
-					<FiCheckSquare />
+					<IconContext.Provider
+						value={{
+							style: {
+								color: "#fff",
+								width: "1.25rem",
+								height: "1.25rem",
+							},
+						}}>
+						<FiCheckSquare />
+					</IconContext.Provider>
 				</div>
 				<p>Take a free test to find your match</p>
 			</div>
@@ -59,7 +68,7 @@ function Hero() {
 				Find your amazing perfect{" "}
 				<span className='color'>Room mate</span> today!
 			</h1>
-			<p>
+			<p className='hero-desc'>
 				Easy Simple Method to find your dream room mate to get the best
 				campus experience.
 			</p>
