@@ -1,0 +1,92 @@
+.top-bar {
+	width: 100%;
+	height: 30px;
+	background: rgba(245, 134, 52, 1);
+	margin-bottom: 10px;
+}
+
+header {
+	width: 100%;
+	height: 50px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+
+	& .logo {
+		width: 109px;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		margin-right: auto;
+		cursor: pointer;
+
+		img {
+			width: 35px;
+		}
+
+		h3 {
+			font-size: 1rem;
+			font-weight: 700;
+		}
+	}
+
+	nav {
+		width: 400px;
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		margin-right: auto;
+
+		a {
+			font-size: 1rem;
+			font-weight: 500;
+			padding: 10px;
+			border-radius: 40px;
+			text-decoration: none;
+			color: rgba(94, 94, 94, 1);
+			transition: 0.3s ease;
+		}
+
+		a:hover {
+			background: rgba(255, 248, 241, 1);
+			color: rgba(225, 114, 32, 1);
+		}
+	}
+
+	.login-buttons {
+		width: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-right: 50px;
+
+		button {
+			padding: 10px 16px;
+			border: 1px solid transparent;
+			border-radius: 10px;
+			color: #333;
+			cursor: pointer;
+		}
+
+		.login-btn {
+			background: none;
+			border-color: rgba(200, 199, 199, 1);
+		}
+
+		.test-btn {
+			color: #fff;
+			background: linear-gradient(112.48deg, #f58634 -6.3%, #ffa84f 100%);
+			transition: 0.3s ease;
+		}
+
+		.test-btn:hover {
+			background: linear-gradient(112.48deg, #ffb883 -6.3%, #ffb76d 100%);
+		}
+
+		.test-btn:active {
+			background: none;
+			color: #333;
+			border-color: rgba(200, 199, 199, 1);
+		}
+	}
+}
