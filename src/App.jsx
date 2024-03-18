@@ -1,7 +1,13 @@
 /* eslint-disable react/prop-types */
 import { FiCheckSquare } from "react-icons/fi";
 import { PiStarFill } from "react-icons/pi";
-import { FaArrowRight } from "react-icons/fa";
+import {
+	FaArrowRight,
+	FaFacebook,
+	FaGithub,
+	FaInstagram,
+} from "react-icons/fa";
+import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 import "./App.css";
 import { IconContext } from "react-icons";
 import { useEffect, useState } from "react";
@@ -113,13 +119,6 @@ function Hero() {
 			<div className='globe'>
 				<img src='/Assets/globe_users.svg' alt='user network' />
 			</div>
-			<div className='support'>
-				<img src='/Assets/1_transistor.svg' alt='Transistor' />
-				<img src='/Assets/2_tuple.svg' alt='Tuple' />
-				<img src='/Assets/3_savvyCal.svg' alt='SavvyCal' />
-				<img src='/Assets/4_statamic.svg' alt='Statamic' />
-				<img src='/Assets/5_reform.svg' alt='Reform' />
-			</div>
 		</div>
 	);
 }
@@ -132,8 +131,76 @@ function Main() {
 	);
 }
 
+function Supports() {
+	return (
+		<div className='support'>
+			<img src='/Assets/1_kevsway.svg' alt='KevsWay' />
+			<img src='/Assets/2_flexy.svg' alt='Flexy' />
+			<img src='/Assets/3_hopeaid.svg' alt='HopeAid' />
+			<img src='/Assets/4_solveit.svg' alt='Solveit' />
+			<img src='/Assets/5_behappy.svg' alt='BeHappy' />
+		</div>
+	);
+}
+
 function Modal({ children }) {
 	return <>{children}</>;
+}
+
+function Checkbox({ size }) {
+	return (
+		<div className='checkbox'>
+			<input
+				type='checkbox'
+				style={{ width: size + "px", height: size + "px" }}
+			/>
+		</div>
+	);
+}
+
+function Question({ title }) {
+	return (
+		<div className='question'>
+			<h3 className='title'>{title}</h3>
+			<div className='check-container'>
+				<p>agree</p>
+				<div className='checkboxes'>
+					<Checkbox size={64} />
+					<Checkbox className='large' />
+					<Checkbox className='medium' />
+					<Checkbox className='small' />
+					<Checkbox className='medium' />
+					<Checkbox className='large' />
+					<Checkbox className='larger' />
+				</div>
+				<p>disagree</p>
+			</div>
+		</div>
+	);
+}
+
+function Questionnaire() {
+	return (
+		<section className='questionnaire'>
+			<div className='question-box'>
+				<Question title='You regularly make new friends.' />
+				<Question title='You usually stay calm, even under a lot of pressure' />
+				<Question title='Your workplace and living zone are usually clean and organized' />
+			</div>
+		</section>
+	);
+}
+
+function Card({ icon, title, message }) {
+	return (
+		<div className='card'>
+			<div className='icon'>
+				<img src={icon} alt={title} />
+			</div>
+			<h4 className='title'>{title}</h4>
+			<p className='desc'>{message}</p>
+		</div>
+	);
 }
 
 export default function App() {
@@ -155,6 +222,34 @@ export default function App() {
 					<div className='top-bar'></div>
 					<Header />
 					<Main />
+					<Supports />
+					<section className='card-section'>
+						<h2 className='title'>Our Services</h2>
+						<Card
+							icon='/Assets/chevron-right.svg'
+							title='Matching Lifestyles'
+							message='Find roommates that fits your 
+preference and lifestyle
+with personalized search results
+curated by our matching algorithm'
+						/>
+						<Card
+							icon='/Assets/carbon_time.svg'
+							title='Time Saving'
+							message='Connect with potential roommates that are relevant and have a mutual intent. Refine and filter out any that are not a good fit for you. '
+						/>
+						<Card
+							icon='/Assets/warning-octagon.svg'
+							title='Spam and Scam free'
+							message='We keep the scammers out and allow real people to connect safely on our platform through A.I and human vetted profiles in our platform with secure in-app messaging'
+						/>
+						<Card
+							icon='/Assets/carbon_security'
+							title='Secured User Information'
+							message='We provide the best security on user information while using this platform. Users are rest assured to have their private information secured  from third party agents in our data base '
+						/>
+					</section>
+					{/* <Questionnaire /> */}
 				</>
 			) : (
 				<Modal>
