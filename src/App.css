@@ -94,8 +94,7 @@ header {
 
 main {
 	width: 70%;
-	height: 500px;
-	margin: 20px auto;
+	margin: 0 auto;
 	padding: 20px;
 
 	text-align: center;
@@ -104,6 +103,9 @@ main {
 
 	.hero {
 		width: 100%;
+		height: 120vh;
+		overflow: hidden;
+		position: relative;
 
 		.free-test {
 			width: 340px;
@@ -185,7 +187,10 @@ main {
 		}
 
 		.start-btn {
-			margin-bottom: 30px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin: 0 auto 50px;
 			padding: 14px 20px;
 			background: linear-gradient(112.48deg, #f58634 -6.3%, #ffa84f 100%);
 			border: 1px solid transparent;
@@ -194,10 +199,21 @@ main {
 			font-weight: 500;
 			font-size: 1rem;
 			cursor: pointer;
+
+			span {
+				margin-left: -20px;
+				opacity: 0;
+				transition: 0.3s ease;
+			}
 		}
 
 		.start-btn:hover {
 			background: linear-gradient(112.48deg, #ffb883 -6.3%, #ffb76d 100%);
+
+			span {
+				margin: 0;
+				opacity: 1;
+			}
 		}
 
 		.start-btn:active {
@@ -206,13 +222,29 @@ main {
 			border-color: rgba(200, 199, 199, 1);
 		}
 
+		.globe {
+			width: 80%;
+			margin-top: 500px;
+			margin: 0 auto;
+			cursor: pointer;
+			overflow: hidden;
+		}
+
+		.globe:hover img {
+			animation: scale 30s forwards ease-in-out;
+		}
+
 		.support {
+			position: absolute;
+			bottom: 0;
 			width: 100%;
-			height: 60px;
+			height: 220px;
+			background: #fff;
 			margin-top: 20px;
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			justify-content: space-around;
+			z-index: 10;
 
 			img {
 				filter: opacity(0.5);
@@ -239,8 +271,18 @@ main {
 	}
 }
 
+@keyframes scale {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(1.5);
+	}
+}
+
 @media screen and (max-width: 600px) {
 }
 @media screen and (max-width: 768px) {
-  /* CSS rules to apply when the screen width is 768 pixels or less */
+	/* CSS rules to apply when the screen width is 768 pixels or less */
 }

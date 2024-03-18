@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FiCheckSquare } from "react-icons/fi";
 import { PiStarFill } from "react-icons/pi";
+import { FaArrowRight } from "react-icons/fa";
 import "./App.css";
 import { IconContext } from "react-icons";
 import { useEffect, useState } from "react";
@@ -8,8 +9,13 @@ import { useEffect, useState } from "react";
 function NavLink({ title, address }) {
 	return <a href={address}>{title}</a>;
 }
-function Button({ title, className }) {
-	return <button className={className}>{title}</button>;
+function Button({ title, className, icon }) {
+	return (
+		<button className={className}>
+			{title}
+			{icon}
+		</button>
+	);
 }
 
 function NavBar() {
@@ -95,7 +101,18 @@ function Hero() {
 					</p>
 				</div>
 			</div>
-			<Button title='Get Started' className='start-btn' />
+			<Button
+				title='Get Started'
+				className='start-btn'
+				icon={
+					<span>
+						<FaArrowRight />
+					</span>
+				}
+			/>
+			<div className='globe'>
+				<img src='/Assets/globe_users.svg' alt='user network' />
+			</div>
 			<div className='support'>
 				<img src='/Assets/1_transistor.svg' alt='Transistor' />
 				<img src='/Assets/2_tuple.svg' alt='Tuple' />
