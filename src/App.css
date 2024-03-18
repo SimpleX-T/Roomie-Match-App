@@ -165,6 +165,65 @@ main {
 			font-weight: 400;
 			color: rgba(0, 0, 0, 1);
 		}
+
+		.happy-users {
+			width: 220px;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			margin-bottom: 30px;
+
+			.users img {
+				width: 80px;
+				cursor: pointer;
+			}
+
+			.review {
+				font-size: 12px;
+			}
+		}
+
+		.start-btn {
+			margin-bottom: 30px;
+			padding: 14px 20px;
+			background: linear-gradient(112.48deg, #f58634 -6.3%, #ffa84f 100%);
+			border: 1px solid transparent;
+			border-radius: 12px;
+			color: #fff;
+			font-weight: 500;
+			font-size: 1rem;
+			cursor: pointer;
+		}
+
+		.start-btn:hover {
+			background: linear-gradient(112.48deg, #ffb883 -6.3%, #ffb76d 100%);
+		}
+
+		.start-btn:active {
+			background: none;
+			color: #333;
+			border-color: rgba(200, 199, 199, 1);
+		}
+
+		.support {
+			width: 100%;
+			height: 60px;
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			img {
+				filter: opacity(0.5);
+				transition: 0.3s ease;
+				cursor: pointer;
+			}
+
+			img:hover {
+				filter: opacity(1);
+			}
+		}
 	}
 }
 
@@ -178,4 +237,7 @@ main {
 	100% {
 		transform: scale(0.8);
 	}
+}
+
+@media screen and (max-width: 600px) {
 }

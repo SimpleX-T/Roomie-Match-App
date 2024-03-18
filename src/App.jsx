@@ -55,8 +55,8 @@ function Hero() {
 						value={{
 							style: {
 								color: "#fff",
-								width: "1.25rem",
-								height: "1.25rem",
+								width: "1rem",
+								height: "1rem",
 							},
 						}}>
 						<FiCheckSquare />
@@ -74,7 +74,7 @@ function Hero() {
 			</p>
 			<div className='happy-users'>
 				<div className='users'>
-					<img src='/Assets/users.png' alt='Happy Users' />
+					<img src='/Assets/users.svg' alt='Happy Users' />
 				</div>
 				<div className='review'>
 					<h4>200k+ Happy Users</h4>
@@ -84,15 +84,23 @@ function Hero() {
 								value={{
 									style: {
 										color: "rgba(255, 193, 33, 1)",
-										fontSize: "2rem",
+										fontSize: "1rem",
 									},
 								}}>
 								<PiStarFill />
 							</IconContext.Provider>
-						</span>{" "}
+						</span>
 						4.8 (10.6k Reviews)
 					</p>
 				</div>
+			</div>
+			<Button title='Get Started' className='start-btn' />
+			<div className='support'>
+				<img src='/Assets/1_transistor.svg' alt='Transistor' />
+				<img src='/Assets/2_tuple.svg' alt='Tuple' />
+				<img src='/Assets/3_savvyCal.svg' alt='SavvyCal' />
+				<img src='/Assets/4_statamic.svg' alt='Statamic' />
+				<img src='/Assets/5_reform.svg' alt='Reform' />
 			</div>
 		</div>
 	);
