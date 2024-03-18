@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
+import { FiCheckSquare } from "react-icons/fi";
+import { PiStarFill } from "react-icons/pi";
 import "./App.css";
+import { IconContext } from "react-icons";
 
 function NavLink({ title, address }) {
 	return <a href={address}>{title}</a>;
@@ -23,7 +26,7 @@ function Logo() {
 	return (
 		<div className='logo'>
 			<div className='img'>
-				<img src='/Assets/fav.png' alt='Romiee Match Logo' />
+				<img src='/Assets/logo.png' alt='Romiee Match Logo' />
 			</div>
 			<h3>Romiee Match</h3>
 		</div>
@@ -43,12 +46,63 @@ function Header() {
 	);
 }
 
+function Hero() {
+	return (
+		<div className='hero'>
+			<div className='free-test'>
+				<div className='icon'>
+					<FiCheckSquare />
+				</div>
+				<p>Take a free test to find your match</p>
+			</div>
+			<h1 className='hero-title'>
+				Find your amazing perfect{" "}
+				<span className='color'>Room mate</span> today!
+			</h1>
+			<p>
+				Easy Simple Method to find your dream room mate to get the best
+				campus experience.
+			</p>
+			<div className='happy-users'>
+				<div className='users'>
+					<img src='/Assets/users.png' alt='Happy Users' />
+				</div>
+				<div className='review'>
+					<h4>200k+ Happy Users</h4>
+					<p>
+						<span className='icon'>
+							<IconContext.Provider
+								value={{
+									style: {
+										color: "rgba(255, 193, 33, 1)",
+										fontSize: "2rem",
+									},
+								}}>
+								<PiStarFill />
+							</IconContext.Provider>
+						</span>{" "}
+						4.8 (10.6k Reviews)
+					</p>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+function Main() {
+	return (
+		<main>
+			<Hero />
+		</main>
+	);
+}
+
 export default function App() {
 	return (
 		<>
 			<div className='top-bar'></div>
 			<Header />
-			<main></main>
+			<Main />
 		</>
 	);
 }
