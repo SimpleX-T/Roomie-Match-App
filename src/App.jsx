@@ -1,20 +1,18 @@
 /* eslint-disable react/prop-types */
 import { FiCheckSquare } from "react-icons/fi";
 import { PiStarFill } from "react-icons/pi";
+// import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { IconContext } from "react-icons";
+// import { useEffect, useState } from "react";
 import {
 	FaArrowRight,
-	FaFacebook,
-	FaGithub,
-	FaInstagram,
+	// FaFacebook,
+	// FaGithub,
+	// FaInstagram,
 } from "react-icons/fa";
-import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+import NavLink from "./Components/LandingPage/NavLink";
 import "./App.css";
-import { IconContext } from "react-icons";
-import { useEffect, useState } from "react";
 
-function NavLink({ title, address }) {
-	return <a href={address}>{title}</a>;
-}
 function Button({ title, className, icon }) {
 	return (
 		<button className={className}>
@@ -79,7 +77,7 @@ function Hero() {
 			</div>
 			<h1 className='hero-title'>
 				Find your amazing perfect
-				<span className='color'>Room mate</span> today!
+				<span className='color'> Room mate</span> today!
 			</h1>
 			<p className='hero-desc'>
 				Easy Simple Method to find your dream room mate to get the best
@@ -107,6 +105,7 @@ function Hero() {
 					</p>
 				</div>
 			</div>
+
 			<Button
 				title='Get Started'
 				className='start-btn'
@@ -252,36 +251,40 @@ export default function App() {
 			</Section>
 			<Section>
 				<div className='steps-section'>
-					<div className='steps'>
-						<h1>Romiee match solution step for you</h1>
-						<ul>
-							<li>
-								<h4>Take a free personality test</h4>
-								<p>
-									Use our A.I technology for personality
-									testing to find the right match for you.
-								</p>
-							</li>
-							<li>
-								<h4>Browse to find the right match</h4>
-								<p>
-									Browse through our database to find the best
-									potential roommate for a smooth and hassle
-									free lifestyle.
-								</p>
-							</li>
-							<li>
-								<h4>Chat and connect easily</h4>
-								<p>
-									Connect and network wth potential roommate
-									to get started. use the chat system to
-									explore and relate with users.
-								</p>
-							</li>
-						</ul>
-					</div>
-					<div className='img'>
-						<div className='play_thumbnail'></div>
+					<div className='container'>
+						<div className='steps'>
+							<h1>Romiee match solution step for you</h1>
+							<ul>
+								<li>
+									<h4>Take a free personality test</h4>
+									<p>
+										Use our A.I technology for personality
+										testing to find the right match for you.
+									</p>
+								</li>
+								<li>
+									<h4>Browse to find the right match</h4>
+									<p>
+										Browse through our database to find the
+										best potential roommate for a smooth and
+										hassle free lifestyle.
+									</p>
+								</li>
+								<li>
+									<h4>Chat and connect easily</h4>
+									<p>
+										Connect and network wth potential
+										roommate to get started. use the chat
+										system to explore and relate with users.
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div className='img'>
+							<div className='play_thumbnail'>
+								<img src='/Assets/play_icon.svg' alt='Play' />
+							</div>
+						</div>
 					</div>
 				</div>
 			</Section>
