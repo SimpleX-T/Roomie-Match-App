@@ -78,7 +78,7 @@ function Hero() {
 				<p>Take a free test to find your match</p>
 			</div>
 			<h1 className='hero-title'>
-				Find your amazing perfect{" "}
+				Find your amazing perfect
 				<span className='color'>Room mate</span> today!
 			</h1>
 			<p className='hero-desc'>
@@ -197,74 +197,96 @@ function Card({ icon, title, message }) {
 			<div className='icon'>
 				<img src={icon} alt={title} />
 			</div>
-			<h4 className='title'>{title}</h4>
+			<h4 className='card-title'>{title}</h4>
 			<p className='desc'>{message}</p>
 		</div>
 	);
 }
 
-export default function App() {
-	const [isReady, setIsReady] = useState(false);
-
-	useEffect(function () {
-		if (window.innerWidth >= 600) {
-			setIsReady(true);
-			return;
-		}
-		setTimeout(() => {
-			setIsReady(true);
-		}, 5000);
-	}, []);
+function CardContainer() {
 	return (
-		<>
-			{isReady ? (
-				<>
-					<div className='top-bar'></div>
-					<Header />
-					<Main />
-					<Supports />
-					<section className='card-section'>
-						<h2 className='title'>Our Services</h2>
-						<Card
-							icon='/Assets/chevron-right.svg'
-							title='Matching Lifestyles'
-							message='Find roommates that fits your 
+		<div className='card-container'>
+			<Card
+				icon='/Assets/chevron-right.svg'
+				title='Matching Lifestyles'
+				message='Find roommates that fits your 
 preference and lifestyle
 with personalized search results
 curated by our matching algorithm'
-						/>
-						<Card
-							icon='/Assets/carbon_time.svg'
-							title='Time Saving'
-							message='Connect with potential roommates that are relevant and have a mutual intent. Refine and filter out any that are not a good fit for you. '
-						/>
-						<Card
-							icon='/Assets/warning-octagon.svg'
-							title='Spam and Scam free'
-							message='We keep the scammers out and allow real people to connect safely on our platform through A.I and human vetted profiles in our platform with secure in-app messaging'
-						/>
-						<Card
-							icon='/Assets/carbon_security'
-							title='Secured User Information'
-							message='We provide the best security on user information while using this platform. Users are rest assured to have their private information secured  from third party agents in our data base '
-						/>
-					</section>
-					{/* <Questionnaire /> */}
-				</>
-			) : (
-				<Modal>
-					<p
-						style={{
-							fontSize: "1rem",
-							margin: "30px 10px",
-							color: "rgb(245, 134, 52)",
-						}}>
-						<b>Note: </b>This page is not yet responsive, so do turn
-						on your <em style={{ opacity: ".6" }}>Desktop Mode</em>{" "}
-						from your android&apos;s browser.
-					</p>
-				</Modal>
-			)}
+			/>
+			<Card
+				icon='/Assets/carbon_time.svg'
+				title='Time Saving'
+				message='Connect with potential roommates that are relevant and have a mutual intent. Refine and filter out any that are not a good fit for you. '
+			/>
+			<Card
+				icon='/Assets/warning-octagon.svg'
+				title='Spam and Scam free'
+				message='We keep the scammers out and allow real people to connect safely on our platform through A.I and human vetted profiles in our platform with secure in-app messaging'
+			/>
+			<Card
+				icon='/Assets/carbon_security.svg'
+				title='Secured User Information'
+				message='We provide the best security on user information while using this platform. Users are rest assured to have their private information secured  from third party agents in our data base '
+			/>
+		</div>
+	);
+}
+
+function Section({ children }) {
+	return <>{children}</>;
+}
+
+export default function App() {
+	return (
+		<>
+			<div className='top-bar'></div>
+			<Header />
+			<Main />
+			<Supports />
+			<Section>
+				<section className='card-section'>
+					<h2 className='title'>Our Services</h2>
+					<CardContainer />
+				</section>
+			</Section>
+			<Section>
+				<div className='steps-section'>
+					<div className='steps'>
+						<h1>Romiee match solution step for you</h1>
+						<ul>
+							<li>
+								<h4>Take a free personality test</h4>
+								<p>
+									Use our A.I technology for personality
+									testing to find the right match for you.
+								</p>
+							</li>
+							<li>
+								<h4>Browse to find the right match</h4>
+								<p>
+									Browse through our database to find the best
+									potential roommate for a smooth and hassle
+									free lifestyle.
+								</p>
+							</li>
+							<li>
+								<h4>Chat and connect easily</h4>
+								<p>
+									Connect and network wth potential roommate
+									to get started. use the chat system to
+									explore and relate with users.
+								</p>
+							</li>
+						</ul>
+					</div>
+					<div className='img'>
+						<div className='play_thumbnail'></div>
+					</div>
+				</div>
+			</Section>
+
+			{/* <Questionnaire /> */}
 		</>
 	);
 }

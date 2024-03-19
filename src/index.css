@@ -8,9 +8,10 @@
 	font-family: "Sora";
 }
 
-/* html {
-	font-size: 70%;
-} */
+button:focus,
+button:active {
+	outline: rgb(214, 195, 184) double 3px;
+}
 
 body {
 	height: 100vh;
