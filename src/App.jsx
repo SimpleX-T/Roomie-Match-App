@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { IconContext } from "react-icons";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
-// import { useEffect, useState } from "react";
 
 import {
 	FaArrowRight,
