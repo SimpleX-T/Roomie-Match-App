@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { IconContext } from "react-icons";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 // import { useEffect, useState } from "react";
 
@@ -649,11 +650,22 @@ export default function App() {
 							All rights reserved.
 						</p>
 						<div className='socials'>
-							<FaFacebook />
-							<FaInstagram />
-							<FaXTwitter />
-							<FaGithub />
-							<FaInstagram />
+							<IconContext.Provider
+								value={{
+									style: {
+										color: "#fff",
+										width: "1.5rem",
+										height: "1.5rem",
+										cursor: "pointer",
+									},
+								}}>
+								<FaFacebook />
+								<FaInstagram />
+								<FaXTwitter />
+								<FaGithub />
+								<FaInstagram />
+								<FaYoutube />
+							</IconContext.Provider>
 						</div>
 					</footer>
 				</div>
