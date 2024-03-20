@@ -731,6 +731,55 @@ main {
 	} */
 }
 
+.footer {
+	width: 100%;
+	height: 70vh;
+	padding: 20px 50px;
+	background: rgba(30, 13, 0, 1);
+
+	.container {
+		width: 90%;
+		display: flex;
+		margin-top: 30px;
+		margin-inline: auto;
+		padding: 20px;
+		align-items: center;
+		gap: 20px;
+
+		.cards {
+			width: 60%;
+			padding: 20px;
+			display: flex;
+			align-items: start;
+			gap: 60px;
+
+			.card {
+				color: #fff;
+
+				h2 {
+					font-size: 1.15rem;
+					font-weight: 500;
+					margin-bottom: 30px;
+				}
+
+				a {
+					display: block;
+					text-decoration: none;
+					color: #fff;
+					font-size: 1rem;
+					margin-bottom: 15px;
+					font-weight: 400;
+					transition: 0.3s ease;
+				}
+
+				a:hover {
+					color: rgba(96, 96, 96, 1);
+				}
+			}
+		}
+	}
+}
+
 @media screen and (max-width: 600px) {
 }
 @media screen and (max-width: 768px) {
