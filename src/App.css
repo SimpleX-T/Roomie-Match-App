@@ -96,7 +96,6 @@ main {
 	width: 70%;
 	margin: 0 auto;
 	height: 100vh;
-	/* border: 1px solid; */
 	padding: 20px 20px 0;
 	text-align: center;
 	background: url("/Assets/bg-square.png") center center no-repeat;
@@ -356,8 +355,9 @@ main {
 
 .steps-section {
 	width: 100%;
-	height: 80vh;
+	/* height: 80vh; */
 	padding: 20px 0;
+	margin-bottom: 40px;
 	background: rgba(255, 255, 255, 1);
 
 	.container {
@@ -416,6 +416,7 @@ main {
 				}
 
 				li:hover::before {
+					opacity: 0.7;
 					transform: scale(1.25);
 				}
 
@@ -425,7 +426,7 @@ main {
 					top: 20px;
 					left: -42px;
 					width: 2px;
-					height: calc(100% + 20px);
+					height: calc(100% + 8px);
 					border-radius: 5px;
 					background: rgba(233, 124, 33, 1);
 				}
@@ -468,53 +469,70 @@ main {
 
 .questionnaire {
 	width: 100%;
+	text-align: center;
 	background: rgba(255, 255, 255, 1);
+	margin-bottom: 50px;
+
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
 
 	.question-box {
 		width: 70%;
-		margin: 10px auto 0;
-		padding: 10px;
+		margin: 0 auto;
 		border-radius: 6px;
-		border: 1px solid;
 
 		.question {
 			width: 100%;
 			margin-block: 10px;
 			text-align: center;
-			border: 1px solid;
+			padding-block: 20px;
+			border-bottom: 2px solid rgba(94, 94, 94, 0.15);
+
+			h3 {
+				color: rgba(96, 96, 96, 1);
+				margin-bottom: 20px;
+				font-weight: 400;
+			}
 
 			.check-container {
-				width: 50%;
+				width: 70%;
 				padding: 10px;
 				margin: 10px auto;
 				display: flex;
 				align-items: center;
 				justify-content: space-around;
-				border: 1px solid;
+
+				p {
+					font-size: 1.25rem;
+					font-weight: 600;
+				}
+
+				p.active {
+					color: red;
+				}
 
 				.checkboxes {
-					width: 50%;
+					width: 70%;
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
 
-					.checkbox input[type="checkbox"] {
+					.checkbox input[type="radio"] {
 						position: relative;
-						appearance: none;
 						cursor: pointer;
+						accent-color: rgba(96, 96, 96, 1);
+						opacity: 0.6;
 					}
 
-					.checkbox input[type="checkbox"]::after {
-						content: "";
-						width: inherit;
-						height: inherit;
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-75%, -75%);
-						border-radius: 25%;
-						background: none;
-						border: 1px solid;
+					.checkbox input[type="radio"].disagree {
+						accent-color: red;
+					}
+
+					.checkbox input[type="radio"].agree {
+						accent-color: green;
 					}
 
 					.small {
@@ -523,6 +541,42 @@ main {
 				}
 			}
 		}
+	}
+
+	.submit-question {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin: 50px auto 0;
+		padding: 8px 20px;
+		background: linear-gradient(112.48deg, #f58634 -6.3%, #ffa84f 100%);
+		border: 1px solid transparent;
+		border-radius: 8px;
+		color: #fff;
+		font-weight: 500;
+		font-size: 1rem;
+		cursor: pointer;
+
+		span {
+			margin-left: -20px;
+			opacity: 0;
+			transition: 0.3s ease;
+		}
+	}
+
+	.submit-question:hover {
+		background: linear-gradient(112.48deg, #ffb883 -6.3%, #ffb76d 100%);
+
+		span {
+			margin: 0;
+			opacity: 1;
+		}
+	}
+
+	.submit-question:active {
+		background: none;
+		color: #333;
+		border-color: rgba(200, 199, 199, 1);
 	}
 }
 

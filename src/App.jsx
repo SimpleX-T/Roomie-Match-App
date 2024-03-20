@@ -1,134 +1,14 @@
 /* eslint-disable react/prop-types */
-import { FiCheckSquare } from "react-icons/fi";
-import { PiStarFill } from "react-icons/pi";
 // import { FaXTwitter, FaYoutube } from "react-icons/fa6";
-import { IconContext } from "react-icons";
 // import { useEffect, useState } from "react";
-import {
-	FaArrowRight,
-	// FaFacebook,
-	// FaGithub,
-	// FaInstagram,
-} from "react-icons/fa";
-import NavLink from "./Components/LandingPage/NavLink";
+
+import { FaArrowRight } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa6";
+import Header from "./Components/LandingPage/Header/Header";
+import Main from "./Components/LandingPage/Main/Main";
 import "./App.css";
-
-function Button({ title, className, icon }) {
-	return (
-		<button className={className}>
-			{title}
-			{icon}
-		</button>
-	);
-}
-
-function NavBar() {
-	return (
-		<nav>
-			<NavLink title='Home' address='#' />
-			<NavLink title='Product' address='#' />
-			<NavLink title='Contact' address='#' />
-			<NavLink title='About' address='#' />
-		</nav>
-	);
-}
-
-function Logo() {
-	return (
-		<div className='logo'>
-			<div className='img'>
-				<img src='/Assets/logo.png' alt='Romiee Match Logo' />
-			</div>
-			<h3>Romiee Match</h3>
-		</div>
-	);
-}
-
-function Header() {
-	return (
-		<header>
-			<Logo />
-			<NavBar />
-			<div className='login-buttons'>
-				<Button title='Login' className='login-btn' />
-				<Button title='Take a test' className='test-btn' />
-			</div>
-		</header>
-	);
-}
-
-function Hero() {
-	return (
-		<div className='hero'>
-			<div className='free-test'>
-				<div className='icon'>
-					<IconContext.Provider
-						value={{
-							style: {
-								color: "#fff",
-								width: "1rem",
-								height: "1rem",
-							},
-						}}>
-						<FiCheckSquare />
-					</IconContext.Provider>
-				</div>
-				<p>Take a free test to find your match</p>
-			</div>
-			<h1 className='hero-title'>
-				Find your amazing perfect
-				<span className='color'> Room mate</span> today!
-			</h1>
-			<p className='hero-desc'>
-				Easy Simple Method to find your dream room mate to get the best
-				campus experience.
-			</p>
-			<div className='happy-users'>
-				<div className='users'>
-					<img src='/Assets/users.svg' alt='Happy Users' />
-				</div>
-				<div className='review'>
-					<h4>200k+ Happy Users</h4>
-					<p>
-						<span className='icon'>
-							<IconContext.Provider
-								value={{
-									style: {
-										color: "rgba(255, 193, 33, 1)",
-										fontSize: "1rem",
-									},
-								}}>
-								<PiStarFill />
-							</IconContext.Provider>
-						</span>
-						4.8 (10.6k Reviews)
-					</p>
-				</div>
-			</div>
-
-			<Button
-				title='Get Started'
-				className='start-btn'
-				icon={
-					<span>
-						<FaArrowRight />
-					</span>
-				}
-			/>
-			<div className='globe'>
-				<img src='/Assets/globe_users.svg' alt='user network' />
-			</div>
-		</div>
-	);
-}
-
-function Main() {
-	return (
-		<main>
-			<Hero />
-		</main>
-	);
-}
+import { useState } from "react";
+import Button from "./Components/Button";
 
 function Supports() {
 	return (
@@ -146,32 +26,154 @@ function Modal({ children }) {
 	return <>{children}</>;
 }
 
-function Checkbox({ size }) {
+// function Checkbox({ size, className, value }) {
+// 	// const [agreeValue, setAgreeValue] = useState(0);
+// 	return (
+// 		<div className='checkbox'>
+// 			<input
+// 				className={className}
+// 				type='radio'
+// 				name='radio'
+// 				// checked={agreeValue > 0 && "checked"}
+// 				// onChange={setAgreeValue(value)}
+// 				style={{ width: size + "px", height: size + "px" }}
+// 			/>
+// 		</div>
+// 	);
+// }
+
+// function Question({ title }) {
+// 	const [value, setValue] = useState(0);
+// 	const [agreed, setAgreed] = useState(null);
+
+// 	function handleSetValue(val) {
+// 		setValue(val);
+// 	}
+
+// 	function handleSetAgreed() {
+// 		setAgreed(value > 0 ? true : false);
+// 	}
+
+// 	return (
+// 		<div className='question'>
+// 			<h3 className='title'>{title}</h3>
+// 			<div className='check-container'>
+// 				<p className={agreed && "active"}>agree</p>
+
+// 				<form onSubmit={handleSetAgreed} className='checkboxes'>
+// 					<Checkbox size={38} className='agree' value={3} />
+// 					<Checkbox size={34} className='agree' value={2} />
+// 					<Checkbox size={30} className='agree' value={1} />
+// 					<Checkbox size={26} value={0} />
+// 					<Checkbox size={30} className='disagree' value={-1} />
+// 					<Checkbox size={34} className='disagree' value={-2} />
+// 					<Checkbox size={38} className='disagree' value={-3} />
+// 				</form>
+
+// 				<p className={agreed && "active"}>disagree</p>
+// 			</div>
+// 		</div>
+// 	);
+// }
+
+// function Questionnaire() {
+// 	return (
+// 		<section className='questionnaire'>
+// 			<h1>Take a free test</h1>
+// 			<div className='question-box'>
+// 				<Question title='You regularly make new friends.' />
+// 				<Question title='You usually stay calm, even under a lot of pressure' />
+// 				<Question title='Your workplace and living zone are usually clean and organized' />
+// 				<Question title='Seeing people sad can easily make you feel sad too' />
+// 				<Question title='You easily network and promote yourself easily in public' />
+// 			</div>
+// 		</section>
+// 	);
+// }
+
+function Checkbox({ size, className, value, onChange, name }) {
 	return (
 		<div className='checkbox'>
 			<input
-				type='checkbox'
+				className={className}
+				type='radio'
+				name={name}
+				value={value}
+				onChange={onChange}
 				style={{ width: size + "px", height: size + "px" }}
 			/>
 		</div>
 	);
 }
 
-function Question({ title }) {
+function Question({ title, name, id, onAnswer }) {
+	const [agreed, setAgreed] = useState(null);
+
+	function handleSetAgreed(val) {
+		if (val > 0) setAgreed(true);
+		else if (val < 0) setAgreed(false);
+		else if (val === 0) setAgreed(null);
+	}
+
 	return (
-		<div className='question'>
+		<div className='question' id={id}>
 			<h3 className='title'>{title}</h3>
 			<div className='check-container'>
 				<p>agree</p>
-				<div className='checkboxes'>
-					<Checkbox size={64} />
-					<Checkbox className='large' />
-					<Checkbox className='medium' />
-					<Checkbox className='small' />
-					<Checkbox className='medium' />
-					<Checkbox className='large' />
-					<Checkbox className='larger' />
-				</div>
+
+				<form
+					className='checkboxes'
+					onChange={(e) => e.target.className !== "" && onAnswer(id)}>
+					<Checkbox
+						size={38}
+						className='agree'
+						value={3}
+						onChange={() => handleSetAgreed(3)}
+						name={name}
+					/>
+					<Checkbox
+						size={34}
+						className='agree'
+						value={2}
+						onChange={() => handleSetAgreed(2)}
+						name={name}
+					/>
+					<Checkbox
+						size={30}
+						className='agree'
+						value={1}
+						onChange={() => handleSetAgreed(1)}
+						name={name}
+					/>
+					<Checkbox
+						size={26}
+						value={0}
+						onChange={() => handleSetAgreed(0)}
+						name={name}
+					/>
+					<Checkbox
+						size={30}
+						className='disagree'
+						value={-1}
+						onChange={() => handleSetAgreed(-1)}
+						name={name}
+					/>
+					<Checkbox
+						size={34}
+						className='disagree'
+						value={-2}
+						onChange={() => handleSetAgreed(-2)}
+						name={name}
+					/>
+					<Checkbox
+						size={38}
+						className='disagree'
+						value={-3}
+						onChange={() => handleSetAgreed(-3)}
+						name={name}
+					/>
+				</form>
+
 				<p>disagree</p>
 			</div>
 		</div>
@@ -179,13 +181,75 @@ function Question({ title }) {
 }
 
 function Questionnaire() {
+	const [submitted, setSubmitted] = useState(false);
+	const [questions, setQuestions] = useState([]);
+
+	function handleSetSubmitted() {
+		questions.length >= 5
+			? setSubmitted(true)
+			: alert("Please pick an option from each questions");
+	}
+
+	function handleSetQuestions(id) {
+		setQuestions((question) =>
+			question?.includes(id) ? question : [...question, id]
+		);
+		console.log(questions);
+	}
+
 	return (
 		<section className='questionnaire'>
-			<div className='question-box'>
-				<Question title='You regularly make new friends.' />
-				<Question title='You usually stay calm, even under a lot of pressure' />
-				<Question title='Your workplace and living zone are usually clean and organized' />
-			</div>
+			{!submitted ? (
+				<>
+					<h1>Take a free test</h1>
+					<div className='question-box'>
+						<Question
+							onAnswer={handleSetQuestions}
+							title='You regularly make new friends.'
+							name='friends'
+							id={1}
+						/>
+						<Question
+							onAnswer={handleSetQuestions}
+							title='You usually stay calm, even under a lot of pressure'
+							name='pressure'
+							id={2}
+						/>
+						<Question
+							onAnswer={handleSetQuestions}
+							title='Your workplace and living zone are usually clean and organized'
+							name='work'
+							id={3}
+						/>
+						<Question
+							onAnswer={handleSetQuestions}
+							title='Seeing people sad can easily make you feel sad too'
+							name='sad'
+							id={4}
+						/>
+						<Question
+							onAnswer={handleSetQuestions}
+							title='You easily network and promote yourself easily in public'
+							name='public'
+							id={5}
+						/>
+					</div>
+				</>
+			) : (
+				<Modal>
+					<h1>Your answer has been submitted</h1>
+				</Modal>
+			)}
+			<Button
+				title='Next'
+				className='submit-question'
+				icon={
+					<span>
+						<FaArrowRight />
+					</span>
+				}
+				onClick={handleSetSubmitted}
+			/>
 		</section>
 	);
 }
@@ -288,8 +352,13 @@ export default function App() {
 					</div>
 				</div>
 			</Section>
-
-			{/* <Questionnaire /> */}
+			<Questionnaire />
+			<Section>
+				<div className='faqs'>
+					<h2>Frequently asked questions</h2>
+					<div className='question-box'></div>
+				</div>
+			</Section>
 		</>
 	);
 }
