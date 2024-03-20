@@ -300,74 +300,147 @@ function Section({ children }) {
 	return <>{children}</>;
 }
 
-function Faq({ question, answer, id }) {
+{
+	/*
+function Accord() {
+	const [questions, setQuestions] = useState(faq);
+
+	function handleSetQuestions(id) {
+		setQuestions((questions) =>
+			questions.map((question) => {
+				return question.id === id
+					? { ...question, open: !question.open }
+					: { ...question, open: false };
+			})
+		);
+	}
+
 	return (
-		<div className='question-box' key={question.id}>
+		<div className='container '>
+			{questions.map((items, i) => (
+				<Question
+					items={items}
+					num={i}
+					onclick={handleSetQuestions}
+					key={i}
+				/>
+			))}
+		</div>
+	);
+}
+
+function Question({ onclick, items, num }) {
+	// const [isOpen, setIsOpen] = useState(false);
+
+	// function handleIsOpen(id) {
+	// 	setIsOpen(!isOpen);
+	// }
+
+	return (
+		<div className={`${items.open ? "accordion active" : "accordion"}`}>
+			<div
+				className={`${
+					items.open
+						? "question-container active"
+						: "question-container"
+				}`}
+				onClick={() => onclick(items.id)}>
+				<h1 className='number'>0{num + 1}</h1>
+				<h3 className='question'>{items.title}</h3>
+				<span className='btn'>{!items.open ? "+" : "-"}</span>
+			</div>
+			<div className='answer-container'>
+				<p className='answer'>{items.text}</p>
+			</div>
+		</div>
+	);
+}
+*/
+}
+
+function Faq({ question, answer, onClick, open, id }) {
+	return (
+		<div className='question-box'>
 			<div className='question'>
-				<h3 className='question'>{question.question}</h3>
-				<button className='icon' onClick={handleSetIsOpen}>
-					{!isOpen ? <FaPlus /> : <FaMinus />}
+				<h3 className='question'>{question}</h3>
+				<button className='icon' onClick={() => onClick(id)}>
+					{!open ? <FaPlus /> : <FaMinus />}
 				</button>
 			</div>
-			<div className='answer'>
-				<p>{question.answer}</p>
-			</div>
+			<div className='answer'>{open && <p>{answer}</p>}</div>
 		</div>
 	);
 }
 
 function FrequentlyAskedQuestions() {
-	const [isOpen, setIsOpen] = useState(false);
-
-	function handleSetIsOpen() {
-		setIsOpen((open) => !open);
-	}
-
-	const questions = [
+	const questionsArr = [
 		{
 			id: 1,
 			question: "Can Rommie match help me find the perfect roommate?",
 			answer: "Yes, Rommie Match can help you find the perfect roommate.",
+			open: false,
 		},
 		{
 			id: 2,
 			question: "Does it cost anything to sign up at Rommie match?",
 			answer: "No, signing up at Rommie Match is completely free.",
+			open: false,
 		},
 		{
 			id: 3,
 			question: "How long does it take for room mate listing to be live?",
 			answer: "Your roommate listing typically goes live within 24 hours.",
+			open: false,
 		},
 		{
 			id: 4,
 			question:
 				"Can I find a room mate to team up with me to find a place?",
 			answer: "Yes, you can find a roommate to team up with you to find a place.",
+			open: false,
 		},
 		{
 			id: 5,
 			question: "How do I know if the people on this site are real?",
 			answer: "We verify user identities to ensure the people on our site are real.",
+			open: false,
 		},
 		{
 			id: 6,
 			question:
 				"What happens to my information when I no longer need to find a roommate?",
 			answer: "Your information is securely stored and deleted upon request.",
+			open: false,
 		},
 	];
+
+	const [questions, setQuestions] = useState(questionsArr);
+
+	function handleSetQuestions(id) {
+		setQuestions((questions) =>
+			questions.map((question) => {
+				return question.id === id
+					? { ...question, open: !question.open }
+					: { ...question, open: false };
+			})
+		);
+	}
 
 	return (
 		<div className='faqs'>
 			<h2>Frequently asked questions</h2>
-			{questions.map((question) => (
-				<Faq
-					question={question.question}
-					answer={question.answer}
-					id={question.id}
-				/>
-			))}
+			<div className='container'>
+				{questions.map((question) => (
+					<Faq
+						onClick={handleSetQuestions}
+						question={question.question}
+						answer={question.answer}
+						key={question.id}
+						id={question.id}
+						open={question.open}
+					/>
+				))}
+			</div>
 		</div>
 	);
 }
