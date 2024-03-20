@@ -377,39 +377,39 @@ function FrequentlyAskedQuestions() {
 		{
 			id: 1,
 			question: "Can Rommie match help me find the perfect roommate?",
-			answer: "Yes, Rommie Match can help you find the perfect roommate.",
+			answer: "Yes, Rommie Match can definitely assist you in finding the perfect roommate. Our platform provides advanced search filters and matching algorithms tailored to your preferences, ensuring compatibility and satisfaction.",
 			open: false,
 		},
 		{
 			id: 2,
 			question: "Does it cost anything to sign up at Rommie match?",
-			answer: "No, signing up at Rommie Match is completely free.",
+			answer: "No, signing up at Rommie Match is completely free. You can create an account, browse listings, and connect with potential roommates at no cost. We believe in making the roommate search process accessible to everyone.",
 			open: false,
 		},
 		{
 			id: 3,
 			question: "How long does it take for room mate listing to be live?",
-			answer: "Your roommate listing typically goes live within 24 hours.",
+			answer: "Your roommate listing typically goes live within 24 hours. Once you create a listing, our team reviews it to ensure it meets our guidelines and standards. Once approved, it will be visible to other users on our platform.",
 			open: false,
 		},
 		{
 			id: 4,
 			question:
 				"Can I find a room mate to team up with me to find a place?",
-			answer: "Yes, you can find a roommate to team up with you to find a place.",
+			answer: "Absolutely! Rommie Match allows you to find a roommate who shares your goal of finding a place together. You can connect with like-minded individuals and collaborate on the search process, making it easier and more enjoyable.",
 			open: false,
 		},
 		{
 			id: 5,
 			question: "How do I know if the people on this site are real?",
-			answer: "We verify user identities to ensure the people on our site are real.",
+			answer: "Ensuring the authenticity of our users is a top priority at Rommie Match. We have strict verification procedures in place to confirm the identity of every user. This includes email verification, phone verification, and optional social media verification.",
 			open: false,
 		},
 		{
 			id: 6,
 			question:
 				"What happens to my information when I no longer need to find a roommate?",
-			answer: "Your information is securely stored and deleted upon request.",
+			answer: "Your privacy and security are important to us. When you no longer need to find a roommate, you can delete your account and all associated information from our platform. Rest assured that we handle your information with care and respect your privacy.",
 			open: false,
 		},
 	];
@@ -441,6 +441,78 @@ function FrequentlyAskedQuestions() {
 					/>
 				))}
 			</div>
+		</div>
+	);
+}
+
+function CustomerCard({ name, image, job, testimonial }) {
+	return (
+		<div className='card'>
+			<img src={image} alt={name} />
+			<q className='testimonial'>{testimonial}</q>
+			<div className='user'>
+				<h4 className='name'>{name}</h4>
+				<p className='job'>{job}</p>
+			</div>
+		</div>
+	);
+}
+
+function CustomerCardContainer() {
+	const customers = [
+		{
+			id: 1,
+			image: "/Assets/ayomide_profile.jfif",
+			name: "Ayomide",
+			job: "Backend developer",
+			testimonial:
+				"I was skeptical at first, but Rommie Match exceeded my expectations! Within hours of creating my listing, I received several messages from potential roommates. The process was smooth, and I'm now living with an amazing roommate. Thank you, Rommie Match!",
+		},
+		{
+			id: 2,
+			image: "/Assets/olamide_profile.jfif",
+			name: "Lucky Olamide",
+			job: "Tech Founder",
+			testimonial:
+				"I can't thank Rommie Match enough for helping me find my ideal roommate. From the moment I signed up, I felt supported by their attentive customer service team. The quality of matches exceeded my expectations, and I quickly connected with someone who has become not just a roommate, but a friend. Thank you, Rommie Match!",
+		},
+		{
+			id: 3,
+			image: "/Assets/Mathew_profile.jfif",
+			name: "Mathew",
+			job: "Product Designer",
+			testimonial:
+				"Rommie Match made finding a roommate stress-free and enjoyable. The platform's extensive search filters allowed me to narrow down my options and connect with compatible roommates who share similar values and habits. I appreciated the safety measures in place, which gave me peace of mind throughout the process. I couldn't be happier with my experience!",
+		},
+		{
+			id: 4,
+			image: "/Assets/Dorcas_profile.png",
+			name: "Dorcas",
+			job: "Project Manager",
+			testimonial:
+				"I was dreading the roommate search process until I discovered Rommie Match. Within days of signing up, I found a roommate who exceeded all my expectations. The platform's intuitive design and helpful resources guided me through every step, making it easy to navigate. I'm thrilled with my new living situation, and I owe it all to Rommie Match!",
+		},
+		{
+			id: 5,
+			image: "/Assets/x.jpg",
+			name: "X",
+			job: "Frontend Developer",
+			testimonial:
+				"Rommie Match took the stress out of finding a roommate for me. With their user-friendly platform and helpful features, I was able to quickly connect with potential roommates who matched my preferences. The process was smooth from start to finish, and I'm now happily settled in with a great roommate. Thanks, Rommie Match, for simplifying the roommate search process!",
+		},
+	];
+
+	return (
+		<div className='cards'>
+			{customers.map((customer) => (
+				<CustomerCard
+					key={customer.id}
+					image={customer.image}
+					name={customer.name}
+					job={customer.job}
+					testimonial={customer.testimonial}
+				/>
+			))}
 		</div>
 	);
 }
@@ -499,6 +571,12 @@ export default function App() {
 			</Section>
 			<Questionnaire />
 			<FrequentlyAskedQuestions />
+			<Section>
+				<div className='customers'>
+					<h1>Hear from our Customers</h1>
+					<CustomerCardContainer />
+				</div>
+			</Section>
 		</>
 	);
 }
