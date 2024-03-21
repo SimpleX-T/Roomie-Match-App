@@ -22,7 +22,7 @@ export default function Questionnaire() {
 	}
 
 	return (
-		<section className='questionnaire'>
+		<section className='questionnaire' id='test'>
 			{!submitted ? (
 				<>
 					<h1>Take a free test</h1>

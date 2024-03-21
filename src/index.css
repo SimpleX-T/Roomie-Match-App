@@ -8,6 +8,10 @@
 	font-family: "Sora";
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 button:focus,
 button:active {
 	outline: rgb(214, 195, 184) double 3px;

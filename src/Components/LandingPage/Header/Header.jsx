@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import Button from "../../Button";
-import Logo from "./Logo";
+import Logo from "./Logo/Logo";
 import NavBar from "./NavBar";
 
 export default function Header() {
@@ -8,8 +9,12 @@ export default function Header() {
 			<Logo />
 			<NavBar />
 			<div className='login-buttons'>
-				<Button title='Login' className='login-btn' />
-				<Button title='Take a test' className='test-btn' />
+				<Link to='/login'>
+					<Button title='Login' className='login-btn' />
+				</Link>
+				<a href='/#test'>
+					<Button title='Take a test' className='test-btn' />
+				</a>
 			</div>
 		</header>
 	);

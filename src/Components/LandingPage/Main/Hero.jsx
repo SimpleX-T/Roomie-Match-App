@@ -8,25 +8,28 @@ import {
 } from "react-icons/fa";
 import { FiCheckSquare } from "react-icons/fi";
 import Button from "../../Button";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
 	return (
 		<div className='hero'>
-			<div className='free-test'>
-				<div className='icon'>
-					<IconContext.Provider
-						value={{
-							style: {
-								color: "#fff",
-								width: "1rem",
-								height: "1rem",
-							},
-						}}>
-						<FiCheckSquare />
-					</IconContext.Provider>
+			<a href='/#test'>
+				<div className='free-test'>
+					<div className='icon'>
+						<IconContext.Provider
+							value={{
+								style: {
+									color: "#fff",
+									width: "1rem",
+									height: "1rem",
+								},
+							}}>
+							<FiCheckSquare />
+						</IconContext.Provider>
+					</div>
+					<p>Take a free test to find your match</p>
 				</div>
-				<p>Take a free test to find your match</p>
-			</div>
+			</a>
 			<h1 className='hero-title'>
 				Find your amazing perfect
 				<span className='color'> Room mate</span> today!
@@ -57,16 +60,17 @@ export default function Hero() {
 					</p>
 				</div>
 			</div>
-
-			<Button
-				title='Get Started'
-				className='start-btn'
-				icon={
-					<span>
-						<FaArrowRight />
-					</span>
-				}
-			/>
+			<Link to='/new'>
+				<Button
+					title='Get Started'
+					className='start-btn'
+					icon={
+						<span>
+							<FaArrowRight />
+						</span>
+					}
+				/>
+			</Link>
 			<div className='globe'>
 				<img src='/Assets/globe_users.svg' alt='user network' />
 			</div>

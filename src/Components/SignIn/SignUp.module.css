@@ -1,0 +1,10 @@
+.container {
+	width: 80%;
+	max-height: 80vh;
+	background: #adecce;
+	padding: 50px;
+}
+
+#root {
+	background: #000;
+}
