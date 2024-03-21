@@ -2,7 +2,8 @@
 
 import "./App.css";
 import LandingPage from "./Components/LandingPage/LandingPage";
-import Signup from "./Components/Signup/SignupPage";
+import SignUp from "./Components/SignIn/SignupPage";
+import SignIn from "./Components/SignIn/SignInPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -11,10 +12,9 @@ export default function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<LandingPage />} />
-					<Route
-						path='/src/Components/Signup/SignupPage.jsx'
-						element={<Signup />}
-					/>
+					<Route path='/login' element={<SignUp />} />
+					<Route path='/signup' element={<SignUp />} />
+					<Route path='/login' element={<SignIn />} />
 				</Routes>
 			</BrowserRouter>
 			{/* <LandingPage /> */}

@@ -1,12 +1,12 @@
 import { FiLoader } from "react-icons/fi";
 
-export default function Signup() {
+export default function SignUp() {
 	return (
 		<>
 			<div className='container'>
-				<div className='signup-bg'></div>
+				<div className='bg'></div>
 				<div className='form-container'>
-					<div className='signin-btn'>
+					<div className='btn'>
 						<p>Have an account?</p>
 						<button className='signin'>Sign In</button>
 					</div>
